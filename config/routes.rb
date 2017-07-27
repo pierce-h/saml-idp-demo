@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get   "/saml/auth",     to: "saml_idp#new"
   get   "/saml/metadata", to: "saml_idp#show"
   post  "/saml/auth",     to: "saml_idp#create"
