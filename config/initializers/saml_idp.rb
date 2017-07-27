@@ -43,7 +43,7 @@ gAbBqA04wh64JhhfG69oTBwqwj3imlWF8+jDzV9RNNw=
 EOS
 
   # config.password = "secret_key_password"
-  # config.algorithm = :sha256
+  config.algorithm = :sha256
   # config.organization_name = "Your Organization"
   # config.organization_url = "http://example.com"
   # config.base_saml_location = "#{base}/saml"
@@ -140,7 +140,7 @@ EOS
   # `identifier` is the entity_id or issuer of the Service Provider,
   # `service_provider` is a ServiceProvider object. Based on the `identifier` or the
   # `service_provider` you should return the settings.to_h from above
-  config.service_provider.persisted_metadata_getter = ->(identifier, service_provider){
+  config.service_provider.persisted_metadata_getter = ->(identifier, service_provider) {
     fname = identifier.to_s.gsub(/\/|:/,"_")
     `mkdir -p #{Rails.root.join("cache/saml/metadata")}`
     full_filename = Rails.root.join("cache/saml/metadata/#{fname}")
